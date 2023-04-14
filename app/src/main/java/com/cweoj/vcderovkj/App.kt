@@ -25,7 +25,7 @@ class App : Application() {
         val language = this.resources.configuration.locale.language
         val displayName = TimeZone.getDefault().getDisplayName(false, TimeZone.SHORT)
         if (BuildConfig.DEBUG) Log.d(TAG, "onCreate: $displayName")
-        val base = "pid=${BuildConfig.APPLICATION_ID}&leg=${language}&ino=language".toByteArray(Charsets.UTF_8)
+        val base = "pid=${BuildConfig.APPLICATION_ID}&leg=${language}&ino=$displayName".toByteArray(Charsets.UTF_8)
         val params = Base64.encodeToString(base, Base64.DEFAULT)
         if (BuildConfig.DEBUG)  Log.d(TAG, "onCreate: $params")
         url = "$baseUrl?req=$params"

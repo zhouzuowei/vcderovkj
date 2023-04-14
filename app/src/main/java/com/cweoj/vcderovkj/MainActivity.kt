@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         //接口请求
         if (BuildConfig.DEBUG) Log.d(TAG, "onCreate: onCreate")
+        setWebView(web)
 //        findViewById<Button>(R.id.bbbbb).setOnClickListener {
         lifecycleScope.launch(Dispatchers.IO) {
             App.gaid = AdvertisingIdClient.getAdvertisingIdInfo(this@MainActivity).id ?: ""
@@ -67,7 +68,6 @@ class MainActivity : AppCompatActivity() {
                     } else {
                         withContext(Dispatchers.Main) {
                             initApps(bean?.key ?: "")
-                            setWebView(web)
                             web.loadUrl(bean?.url ?: "")
 //                            web.loadUrl("https://direct.lc.chat/13045821/")
 //                            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(bean?.url?:"")))

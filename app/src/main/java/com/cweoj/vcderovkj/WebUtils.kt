@@ -26,7 +26,7 @@ fun WebView.setSettingsExt(
     context: AppCompatActivity,
     uploadMessageAboveL: (ValueCallback<Array<Uri>>?) -> Unit
 ) {
-    settings.cacheMode = WebSettings.LOAD_NO_CACHE
+    settings.cacheMode = WebSettings.LOAD_DEFAULT
     settings.javaScriptEnabled = true
     settings.allowContentAccess = true
     settings.allowFileAccess = true
